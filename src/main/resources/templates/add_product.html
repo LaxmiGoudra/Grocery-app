@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Product</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Add New Product</h1>
+        
+        <!-- ಫಾರ್ಮ್ ಇಲ್ಲಿದೆ -->
+        <form action="#" th:action="@{/save}" th:object="${product}" method="post">
+            
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Product Name:</td>
+                    <td><input type="text" th:field="*{name}" required /></td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td><input type="text" th:field="*{category}" required /></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><input type="number" step="0.01" th:field="*{price}" required /></td>
+                </tr>
+                <tr>
+                    <td>Stock (Quantity):</td>
+                    <td><input type="number" th:field="*{stock}" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Save Product</button></td>
+                </tr>
+            </table>
+            
+        </form>
+        <br>
+    
+<input type="hidden" th:field="*{id}" />
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

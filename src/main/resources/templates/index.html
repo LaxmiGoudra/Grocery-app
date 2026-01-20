@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Grocery Shop</title>
+</head>
+<body>
+    <div align="center">
+        <h1 style="color:green;">My Grocery Store</h1>
+        
+        <a href="/new"><h3>+ Add New Product</h3></a>
+        
+        <a href="/create-bill"><h3 style="color:blue;">Create Bill (Sell Item)</h3></a>
+        
+        <a href="/bills"><h3 style="color: purple;">View Sales History</h3></a>
+
+        
+        <table border="1" style="width:80%;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th> <!-- ಹೊಸ ಕಾಲಂ -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${products}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="${p.category}"></td>
+                    <td th:text="${p.price}"></td>
+                    <td th:text="${p.stock}"></td>
+                    <td>
+                        <a th:href="@{/edit/{id}(id=${p.id})}">Edit</a>
+                        &nbsp;|&nbsp;
+                        <a th:href="@{/delete/{id}(id=${p.id})}" style="color:red;" 
+                           onclick="return confirm('Are you sure?');">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
