@@ -70,12 +70,20 @@
     <version>5.5.13.2</version>
 </dependency> 
 
+<<<<<<< HEAD
 
 <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
     <scope>test</scope>
 </dependency> 
+=======
+		<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>test</scope>
+</dependency>
+>>>>>>> 222372d78c0b9b864a01a37f8080e0e78da58f1e
 
 	</dependencies>
 
