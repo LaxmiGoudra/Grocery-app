@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: grocerydb
+      MYSQL_USER: grocery
+      MYSQL_PASSWORD: grocery
+
+  app:
+    image: grocery-app
+    container_name: grocery-app
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/grocerydb
+      SPRING_DATASOURCE_USERNAME: grocery
+      SPRING_DATASOURCE_PASSWORD: grocery
+
